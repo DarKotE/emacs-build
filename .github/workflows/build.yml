@@ -68,8 +68,8 @@ jobs:
         if: runner.os == 'Windows'
         # Require --nativecomp and --with-* flags, else the deps will not be included properly
         run: |
-          .\emacs-build.cmd --branch emacs-29 --nativecomp-aot --slim --with-rsvg --build
-          .\emacs-build.cmd --branch emacs-29 --nativecomp-aot --slim --with-rsvg --pack-all
+          .\emacs-build.cmd --branch emacs-29 --nativecomp-aot --with-rsvg --build
+          .\emacs-build.cmd --branch emacs-29 --nativecomp-aot --with-rsvg --pack-all
 
       - name: Build and pack Emacs
         if: runner.os != 'Windows'
