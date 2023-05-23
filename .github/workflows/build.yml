@@ -48,7 +48,7 @@ jobs:
       # This is the shortest job, but in this case it pulls all MSYS/MINGW64
       - name: Clone Emacs
         if: runner.os == 'Windows'
-        run: .\emacs-build.cmd --clone --repo https://github.com/emacs-mirror/emacs.git --depth 1 --branch emacs-29 
+        run: .\emacs-build.cmd --branch emacs-29 --depth 1 --repo https://github.com/emacs-mirror/emacs.git --clone 
 
       - name: Clone Emacs
         if: runner.os != 'Windows'
@@ -68,6 +68,7 @@ jobs:
         if: runner.os == 'Windows'
         # Require --nativecomp and --with-* flags, else the deps will not be included properly
         run: |
+          .\emacs-build.cmd --branch emacs-29 --nativecomp --with-rsvg --clean
           .\emacs-build.cmd --branch emacs-29 --nativecomp --with-rsvg --build
           .\emacs-build.cmd --branch emacs-29 --nativecomp --with-rsvg --pack-all
 
